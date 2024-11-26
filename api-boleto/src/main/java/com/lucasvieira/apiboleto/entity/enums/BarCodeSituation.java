@@ -1,4 +1,4 @@
-package com.lucasvieira.apiboleto.entitie.enums;
+package com.lucasvieira.apiboleto.entity.enums;
 
 public enum BarCodeSituation {
 

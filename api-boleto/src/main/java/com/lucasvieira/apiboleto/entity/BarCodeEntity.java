@@ -1,6 +1,6 @@
-package com.lucasvieira.apiboleto.entitie;
+package com.lucasvieira.apiboleto.entity;
 
-import com.lucasvieira.apiboleto.entitie.enums.BarCodeSituation;
+import com.lucasvieira.apiboleto.entity.enums.BarCodeSituation;
 import jakarta.persistence.*;
 import lombok.*;
 
