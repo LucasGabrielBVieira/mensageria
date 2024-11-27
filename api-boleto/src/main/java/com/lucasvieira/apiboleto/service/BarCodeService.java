@@ -2,7 +2,9 @@ package com.lucasvieira.apiboleto.service;
 
 
 import com.lucasvieira.apiboleto.entity.BarCodeEntity;
+import com.lucasvieira.apiboleto.entity.dto.BarCodeDTO;
 import com.lucasvieira.apiboleto.entity.enums.BarCodeSituation;
+import com.lucasvieira.apiboleto.mapper.BarCodeMapper;
 import com.lucasvieira.apiboleto.repository.BarCodeRepository;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +21,7 @@ public class BarCodeService {
         this.barCodeRepository = barCodeRepository;
     }
 
-    public void save(String barCode) {
+    public BarCodeDTO save(String barCode) {
         Optional<BarCodeEntity> barCodeEntity = barCodeRepository.findBarCodeEntityByBarCode(barCode);
         if (barCodeEntity.isPresent()) {
             throw new RuntimeException("Bar code already exists");
@@ -32,5 +34,7 @@ public class BarCodeService {
                 .build();
 
         barCodeRepository.save(entity);
+
+        return BarCodeMapper.toDto(entity);
     }
 }
